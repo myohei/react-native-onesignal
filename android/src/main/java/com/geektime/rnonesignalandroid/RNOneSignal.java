@@ -176,6 +176,12 @@ public class RNOneSignal extends ReactContextBaseJavaModule implements Lifecycle
         OneSignal.cancelNotification(id);
     }
 
+    @ReactMethod
+    public boolean getSubscribed() {
+        OSPermissionSubscriptionState status = OneSignal.getPermissionSubscriptionState();
+        return status.getSubscribed();
+    }
+
     private void registerNotificationsReceivedNotification() {
         IntentFilter intentFilter = new IntentFilter(NOTIFICATION_RECEIVED_INTENT_FILTER);
         mReactContext.registerReceiver(new BroadcastReceiver() {

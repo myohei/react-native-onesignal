@@ -1,4 +1,3 @@
-
 'use strict';
 
 import { NativeModules, NativeAppEventEmitter, NetInfo, Platform } from 'react-native';
@@ -202,6 +201,14 @@ export default class OneSignal {
             RNOneSignal.cancelNotification(id);
         } else {
             console.log("This function is not supported on iOS");
+        }
+    }
+
+    static async getSubscribed() {
+        if (Platform.OS == 'android') {
+            return RNOneSignal.getSubscribed();
+        } else {
+            return await RNOneSignal.getSubscribed()
         }
     }
 
