@@ -205,11 +205,13 @@ export default class OneSignal {
     }
 
     static async getSubscribed() {
+        let result;
         if (Platform.OS == 'android') {
-            return RNOneSignal.getSubscribed();
+            result = RNOneSignal.getSubscribed();
         } else {
-            return await RNOneSignal.getSubscribed()
+            result = await RNOneSignal.getSubscribed()
         }
+        return result
     }
 
     //Sends MD5 and SHA1 hashes of the user's email address (https://documentation.onesignal.com/docs/ios-sdk-api#section-synchashedemail)
