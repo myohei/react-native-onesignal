@@ -18,6 +18,7 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.facebook.react.bridge.Promise;
 import com.onesignal.OneSignal;
 import com.onesignal.OSPermissionSubscriptionState;
 
@@ -178,10 +179,9 @@ public class RNOneSignal extends ReactContextBaseJavaModule implements Lifecycle
     }
 
     @ReactMethod
-    public boolean getSubscribed() {
+    public void getSubscribed(Promise promise) {
         OSPermissionSubscriptionState status = OneSignal.getPermissionSubscriptionState();
-        Log.i("ONESIGNAL","=="+status.getSubscriptionStatus().getSubscribed());
-        return status.getSubscriptionStatus().getSubscribed();
+        promise.resolve(status.getSubscriptionStatus().getSubscribed());
     }
 
     private void registerNotificationsReceivedNotification() {
