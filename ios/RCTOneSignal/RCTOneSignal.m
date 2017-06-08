@@ -220,7 +220,7 @@ RCT_EXPORT_METHOD(promptLocation) {
 RCT_EXPORT_METHOD(getSubscribed:(RCTPromiseResolveBlock)resolve
                        rejecter:(RCTPromiseRejectBlock)reject) {
     OSPermissionSubscriptionState* status = [OneSignal getPermissionSubscriptionState];
-    resolver(status.subscriptionStatus.subscribed);
+    resolve(status.subscriptionStatus.subscribed);
 }
 
 RCT_EXPORT_METHOD(postNotification:(NSDictionary *)contents data:(NSDictionary *)data player_id:(NSString*)player_id) {
