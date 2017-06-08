@@ -180,6 +180,7 @@ public class RNOneSignal extends ReactContextBaseJavaModule implements Lifecycle
     @ReactMethod
     public boolean getSubscribed() {
         OSPermissionSubscriptionState status = OneSignal.getPermissionSubscriptionState();
+        Log.i("ONESIGNAL","=="+status.getSubscriptionStatus().getSubscribed());
         return status.getSubscriptionStatus().getSubscribed();
     }
 
