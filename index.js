@@ -207,7 +207,7 @@ export default class OneSignal {
     static async getSubscribed() {
         let result;
         if (Platform.OS == 'android') {
-            result = RNOneSignal.getSubscribed();
+            result = await RNOneSignal.getSubscribed();
         } else {
             result = await RNOneSignal.getSubscribed()
         }
