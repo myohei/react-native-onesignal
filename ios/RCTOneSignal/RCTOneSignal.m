@@ -217,7 +217,7 @@ RCT_EXPORT_METHOD(promptLocation) {
     [OneSignal promptLocation];
 }
 
-RCT_EXPORT_METHOD(getSubscribed:resolver:(RCTPromiseResolveBlock)resolve
+RCT_EXPORT_METHOD(getSubscribed:(RCTPromiseResolveBlock)resolve
                        rejecter:(RCTPromiseRejectBlock)reject) {
     OSPermissionSubscriptionState* status = [OneSignal getPermissionSubscriptionState];
     resolver(status.subscriptionStatus.subscribed);
